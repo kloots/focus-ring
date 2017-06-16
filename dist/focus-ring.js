@@ -170,7 +170,6 @@ ClassList.prototype.toggle = function (token, force) {
   return (typeof force == 'boolean' ? force : !hasToken);
 };
 
-/* https://github.com/WICG/focus-ring */
 document.addEventListener('DOMContentLoaded', function() {
   var hadKeyboardEvent = false;
   var elWithFocusRing;
@@ -250,13 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.keyCode != 9)
       return;
 
-    // `activeElement` defaults to document.body if nothing focused,
-    // so check the active element is actually focused.
-    var activeElement = document.activeElement;
-    if (activeElement.tagName == 'BODY')
-      return;
-
-    addFocusRingClass(activeElement);
     hadKeyboardEvent = true;
   }
 

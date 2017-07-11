@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
    * @param {Event} e
    */
   function onFocus(e) {
+    if (e.target == document)
+      return;
+
     if (hadKeyboardEvent || focusTriggersKeyboardModality(e.target)) {
       addFocusRingClass(e.target);
       hadKeyboardEvent = false;
@@ -101,6 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
    * @param {Event} e
    */
   function onBlur(e) {
+    if (e.target == document)
+      return;
+
     removeFocusRingClass(e.target);
   }
 
